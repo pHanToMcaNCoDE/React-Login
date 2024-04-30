@@ -39,9 +39,17 @@ function App() {
 
           secureLocalStorage.setItem('token', token)
 
-          toast.success('Logged In Successfully!', {
-            transition: Bounce,
-          })
+          if(res.data.ok === true){
+            toast.success('Logged In Successfully!', {
+              transition: Bounce,
+            })
+          }else{
+            toast.error('Something went wrong!', {
+              transition: Bounce,
+            });
+          }
+
+          
       
     }).catch((e) => {
       toast.error('Something went wrong!', {
